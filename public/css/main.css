@@ -1,30 +1,188 @@
-html, body {
-    background-color: lightblue;
-    font-family: Arial, sans-serif;
+/* ========== RESET ========== */
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* ========== BODY ========== */
 body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+/* ========== NAVIGATION ========== */
+nav {
+    background: #0d47a1;
+    padding: 15px 30px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menu toggle button */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Nav list */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Links */
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    padding: 8px 12px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover + focus (accessibility) */
+nav a:hover,
+nav a:focus {
+    background: #ffcc00;
+    color: #000;
+    border-radius: 5px;
+}
+
+/* ========== MAIN CONTENT ========== */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+/* Headings */
+h1 {
+    color: #0d47a1;
+    margin-bottom: 15px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* ========== LIST (Organizations etc.) ========== */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+ul li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Images inside list */
+ul li img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Text highlight */
+ul li strong {
+    color: #0d47a1;
+}
+
+/* ========== MAIN IMAGE ========== */
+.main-logo {
+    width: 250px;
+    max-width: 100%;
+    margin-top: 20px;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    color: #555;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablet */
+@media (max-width: 768px) {
+
     nav {
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            display: inline;
-            margin-right: 15px;
-        }
-
-        a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-
-            &:hover {
-                color: #0066cc;
-            }
-        }
+        flex-direction: column;
+        align-items: flex-start;
     }
-}       
+
+    .menu-toggle {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav a {
+        display: block;
+        width: 100%;
+    }
+
+    main {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    ul li {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+}
+
+/* ========== ACCESSIBILITY ========== */
+
+/* Keyboard focus */
+a:focus {
+    outline: 3px solid #ffcc00;
+    outline-offset: 2px;
+}
