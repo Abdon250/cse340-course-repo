@@ -35,3 +35,39 @@ VALUES
 (1, 'Tree Planting Initiative', 'Plant native trees to help increase urban canopy cover.', 'Oakridge Forest Park', '2026-05-25'),
 (2, 'Blood Donation Drive', 'Assist with registration and support local blood donors.', 'Red Cross Center', '2026-05-27');
 
+
+CREATE TABLE categories (
+    category_id SERIAL PRIMARY KEY,
+	name VARCHAR(110) NOT NULL
+);
+
+CREATE TABLE project_categories (
+    project_id INTEGER NOT NULL,
+    category_id INTEGER NOT NULL,
+
+    PRIMARY KEY (project_id, category_id),
+
+    FOREIGN KEY (project_id)
+        REFERENCES projects(project_id),
+
+    FOREIGN KEY (category_id)
+        REFERENCES categories(category_id)
+);
+
+INSERT INTO categories (name)
+VALUES
+('Environment'),
+('Education'),
+('Community Service');
+
+INSERT INTO project_categories (project_id, category_id)
+VALUES
+(1, 1),
+(2, 3),
+(3, 2),
+(4, 3),
+(5, 1),
+(6, 3),
+(7, 1),
+(8, 3);
+
